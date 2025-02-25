@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crocodile Facts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #4CAF50; /* Crocodile green */
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        button {
+            background-color: #2E7D32;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #1B5E20;
+        }
+
+        .fact {
+            margin-top: 20px;
+            font-size: 18px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Crocodile Facts</h1>
+        <button id="factButton">Show a Random Fact</button>
+        <p id="factDisplay" class="fact"></p>
+    </div>
+    <script>
+        const facts = [
+            "Crocodiles have been around for over 200 million years, making them one of the oldest living species.",
+            "They can hold their breath underwater for up to an hour.",
+            "Crocodiles have a powerful bite, with a force of up to 3,700 pounds per square inch.",
+            "They can grow up to 23 feet long and weigh over 2,200 pounds.",
+            "Crocodiles have a special valve in their throat that allows them to open their mouths underwater without drowning.",
+            "They can live up to 70 years in the wild.",
+            "Crocodiles are excellent swimmers and can reach speeds of up to 20 miles per hour in the water.",
+            "They have a unique way of cooling down by opening their mouths, which is known as 'mouth gaping.'",
+            "Crocodiles have a four-chambered heart, which is more similar to birds and mammals than to other reptiles.",
+            "They are known to use tools, such as balancing sticks on their snouts to lure birds."
+        ];
+
+        document.getElementById('factButton').addEventListener('click', () => {
+            const randomIndex = Math.floor(Math.random() * facts.length);
+            const factDisplay = document.getElementById('factDisplay');
+            factDisplay.style.opacity = 0;
+            setTimeout(() => {
+                factDisplay.textContent = facts[randomIndex];
+                factDisplay.style.opacity = 1;
+            }, 300);
+        });
+    </script>
+</body>
+</html>
